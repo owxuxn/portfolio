@@ -20,7 +20,7 @@
 
 ## 🚀 데모 보기
 
-🌐 **라이브 데모**: [portfolio-demo.vercel.app](https://portfolio-demo.vercel.app)
+🌐 **로컬 데모**: `npm run dev` 실행 후 http://localhost:3000
 
 > 실시간으로 데이터가 업데이트되는 모습을 확인해보세요!
 
