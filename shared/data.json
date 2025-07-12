@@ -14,16 +14,53 @@
   "skills": ["JavaScript", "React", "Node.js", "Socket.IO", "HTML", "CSS", "MySQL", "Linux", "Python"],
   "experience": [
     {
-      "company": "Datory - personal AI career advisor",
-      "position": "탑신병자",
-      "period": "2025",
-      "description": "AI와 대화를 통한 직무 추천 프로젝트 개발 - 사용자 데이터 분석 및 맞춤형 커리어 가이드 제공"
+      "company": "동아리 활동",
+      "position": "사이버보안 전공심화동아리",
+      "period": "2023 ~ 2024",
+      "description": "사이버보안 전공심화동아리에서 부원으로 활동하며 웹 해킹과 포렌식을 담당하여 부원들과 지식 공유 활동"
     },
     {
-      "company": "포트폴리오",
-      "position": "풀스텍 개발자",
-      "period": "2025",
-      "description": "실시간 업데이트로 수정사항 확인이 가능한 포트폴리오 웹사이트 개발"
+      "company": "동아리 활동",
+      "position": "한봄고등학교 학생자치회",
+      "period": "2024 ~ 현재",
+      "description": "총무부 차장으로 시작하여 부장으로 진급하고, 학교 행사의 예산 관리와 사무를 총괄하였음"
+    },
+    {
+      "company": "동아리 활동",
+      "position": "웹디자인 동아리",
+      "period": "2024",
+      "description": "웹 디자인의 기초와 웹 상에서 로그인 페이지 구현 및 간단한 보드게임 구현, 웹 개발시에 Ai를 활용하여 개발하는 방법도 배우며 역량을 기름"
+    },
+
+    {
+      "company": "수상 경력",
+      "position": "경운대학교 지능형모빌리티 SW경진대회",
+      "period": "2024.07.23",
+      "description": "전국 특성화 고등학교 학생들 대상으로 진행된 대회의 보안부문에서 은상 수상"
+    },
+    {
+      "company": "수상 경력",
+      "position": "2024 사이버 가디언즈 콘퍼런스&경진대회",
+      "period": "2024.10.30",
+      "description": "전공심화동아리에서 진행한 사이버 가디언즈 사업의 일환으로 경진대회에 참여"
+    },
+    {
+      "company": "교육 이수",
+      "position": "성균관대학교 멘토링",
+      "period": "2023 ~ 2024",
+      "description": "성균관대 학과 학생들이 [Python]특강을 진행하여 이에 관한 역량 강화"
+    },
+    {
+      "company": "교육 이수",
+      "position": "2025 경기창고 아마존웹서비스 기업탐방 및 아마존워킹백워드워크샵",
+      "period": "2025.06.14",
+      "description": "AWS 코리아에 방문하여 기업탐방과 오전,오후의 워크샵을 통해 필수 역량과 협동심을 기름"
+    },
+    {
+      "company": "교육 이수",
+      "position": "2025 경기창고 오프라인 AI 공인교육(Generative AI Essentials on AWS (Korean))",
+      "period": "2025.07.12",
+      "description": "AWS 코리아 AWS Training & Certification팀에서 오셔서 AWS의 베드락,파티락에서의 AI 교육을 진행\n 바이블 코딩에 대한것과, AI의 구조에 대해서 배웠음"
     }
   ]
 }

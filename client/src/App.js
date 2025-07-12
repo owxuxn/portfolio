@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import './App.css';
+import Home from './components/Home';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Experience from './components/Experience';
+import Sidebar from './components/Sidebar';
 
 // Google Fonts 추가
 if (!document.querySelector('link[href*="Poppins"]')) {
@@ -28,6 +33,13 @@ function App() {
     lastUpdated: null
   });
   const [isConnected, setIsConnected] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState('home');
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    setIsSidebarOpen(false);
+  };
 
   useEffect(() => {
     // Socket 초기화
@@ -69,59 +81,29 @@ function App() {
   return (
     <div className="App">
       <header className="header">
-        <h1>강지훈</h1>
+        <div className="header-left">
+          <button 
+            className="sidebar-btn"
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            type="button"
+            aria-label="메뉴 열기"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <h1>owxuxn</h1>
+        </div>
         <div className={`status ${isConnected ? 'connected' : 'disconnected'}`}>
           {isConnected ? '🟢 실시간 연결됨' : '🔴 연결 끊김'}
         </div>
       </header>
 
       <main className="main">
-        <section className="section">
-          <h2>프로젝트</h2>
-          {portfolioData.projects && portfolioData.projects.length > 0 ? (
-            portfolioData.projects.map((project, index) => (
-              <div key={index} className="card">
-                <h3>{project.name || '제목 없음'}</h3>
-                <p>{project.description || '설명이 없습니다.'}</p>
-                <p><strong>기술 스택:</strong> {project.tech || 'N/A'}</p>
-              </div>
-            ))
-          ) : (
-            <div className="card">
-              <p>프로젝트 데이터를 불러오는 중...</p>
-            </div>
-          )}
-        </section>
-
-        <section className="section">
-          <h2>기술 스택</h2>
-          <div className="skills">
-            {portfolioData.skills && portfolioData.skills.length > 0 ? (
-              portfolioData.skills.map((skill, index) => (
-                <span key={index} className="skill-tag">{skill}</span>
-              ))
-            ) : (
-              <p>기술 스택을 불러오는 중...</p>
-            )}
-          </div>
-        </section>
-
-        <section className="section">
-          <h2>경험</h2>
-          {portfolioData.experience && portfolioData.experience.length > 0 ? (
-            portfolioData.experience.map((exp, index) => (
-              <div key={index} className="card">
-                <h3>{exp.company || '회사명 없음'}</h3>
-                <p><strong>{exp.position || '직책 없음'}</strong> • {exp.period || '기간 없음'}</p>
-                <p>{exp.description || '설명이 없습니다.'}</p>
-              </div>
-            ))
-          ) : (
-            <div className="card">
-              <p>경험 데이터를 불러오는 중...</p>
-            </div>
-          )}
-        </section>
+        {currentPage === 'home' && <Home portfolioData={portfolioData} />}
+        {currentPage === 'projects' && <Projects portfolioData={portfolioData} />}
+        {currentPage === 'skills' && <Skills portfolioData={portfolioData} />}
+        {currentPage === 'experience' && <Experience portfolioData={portfolioData} />}
       </main>
 
       <footer className="footer">
@@ -130,6 +112,13 @@ function App() {
         )}
         <p>© 2025 owxuxn portfolio. All rights reserved.</p>
       </footer>
+      
+      <Sidebar 
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSidebarOpen}
+        currentPage={currentPage}
+        handlePageChange={handlePageChange}
+      />
     </div>
   );
 }
