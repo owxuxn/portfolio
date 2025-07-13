@@ -5,8 +5,8 @@
 }
 
 body {
-  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   font-family: 'Pretendard', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 400;
   letter-spacing: -0.02em;
@@ -17,6 +17,24 @@ body {
   margin: 0 auto;
   padding: 80px 20px 20px;
   min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  transition: all 0.3s ease;
+}
+
+.App.light {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #1f2937;
+}
+
+.App::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  z-index: -1;
 }
 
 .header {
@@ -34,6 +52,13 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.App.light .header {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .header-left {
@@ -178,13 +203,14 @@ body {
   transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
   border-left: 3px solid transparent;
   transform: translateX(0);
+  margin: 0;
+  overflow: hidden;
 }
 
 .sidebar-nav a:hover {
   background: rgba(0, 212, 255, 0.1);
   border-left-color: #00d4ff;
   color: #00d4ff;
-  transform: translateX(5px);
 }
 
 .nav-btn {
@@ -202,13 +228,14 @@ body {
   cursor: pointer;
   font-size: 16px;
   transform: translateX(0);
+  margin: 0;
+  overflow: hidden;
 }
 
 .nav-btn:hover {
   background: rgba(0, 212, 255, 0.1);
   border-left-color: #00d4ff;
   color: #00d4ff;
-  transform: translateX(5px);
 }
 
 .nav-btn.active {
@@ -216,7 +243,6 @@ body {
   border-left-color: #00d4ff;
   color: #00d4ff;
   font-weight: 600;
-  transform: translateX(5px);
 }
 
 /* 메인 페이지 스타일 */
@@ -257,6 +283,11 @@ body {
   color: #ffffff;
   margin-bottom: 20px;
   line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.App.light .hero-subtitle {
+  color: #374151;
 }
 
 .hero-description {
@@ -264,6 +295,11 @@ body {
   color: #b0b8c8;
   line-height: 1.6;
   margin-bottom: 45px;
+  transition: color 0.3s ease;
+}
+
+.App.light .hero-description {
+  color: #6b7280;
 }
 
 .hero-stats {
@@ -299,6 +335,11 @@ body {
   color: #b0b8c8;
   margin-top: 8px;
   font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.App.light .stat-label {
+  color: #6b7280;
 }
 
 /* 경험 페이지 카테고리 */
@@ -313,6 +354,12 @@ body {
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.App.light .category-title {
+  color: #374151;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.2);
 }
 
 .experience-category .card h4 {
@@ -320,6 +367,11 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.App.light .experience-category .card h4 {
+  color: #1f2937;
 }
 
 @media (max-width: 768px) {
@@ -362,7 +414,19 @@ body {
   }
 }
 
-.header h1 {
+.logo-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+
+.logo-btn:hover {
+  transform: scale(1.05);
+}
+
+.logo-btn h1 {
   font-size: 1.8rem;
   font-weight: 700;
   background: linear-gradient(135deg, #00d4ff, #5b86e5);
@@ -375,6 +439,43 @@ body {
   height: 40px;
   display: flex;
   align-items: center;
+}
+
+.App.light .logo-btn h1 {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.theme-toggle:hover {
+  background: rgba(0, 212, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.App.light .theme-toggle:hover {
+  background: rgba(102, 126, 234, 0.1);
 }
 
 .status {
@@ -413,6 +514,13 @@ body {
   padding: 30px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.App.light .section {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .section h2 {
@@ -421,6 +529,11 @@ body {
   color: #ffffff;
   margin-bottom: 25px;
   position: relative;
+  transition: color 0.3s ease;
+}
+
+.App.light .section h2 {
+  color: #1f2937;
 }
 
 .section h2::after {
@@ -438,6 +551,11 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+}
+
+.App.light .card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .card::before {
@@ -462,6 +580,11 @@ body {
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.App.light .card h3 {
+  color: #1f2937;
 }
 
 .card p {
@@ -469,6 +592,11 @@ body {
   line-height: 1.5;
   margin-bottom: 6px;
   font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.App.light .card p {
+  color: #6b7280;
 }
 
 .skills {

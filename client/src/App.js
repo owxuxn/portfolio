@@ -35,6 +35,7 @@ function App() {
   const [isConnected, setIsConnected] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -79,7 +80,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className={`App ${isDarkMode ? 'dark' : 'light'}`}>
       <header className="header">
         <div className="header-left">
           <button 
@@ -92,10 +93,26 @@ function App() {
             <span></span>
             <span></span>
           </button>
-          <h1>owxuxn</h1>
+          <button 
+            className="logo-btn"
+            onClick={() => setCurrentPage('home')}
+            type="button"
+          >
+            <h1>owxuxn</h1>
+          </button>
         </div>
-        <div className={`status ${isConnected ? 'connected' : 'disconnected'}`}>
-          {isConnected ? '🟢 실시간 연결됨' : '🔴 연결 끊김'}
+        <div className="header-right">
+          <button 
+            className="theme-toggle"
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            type="button"
+            aria-label="테마 전환"
+          >
+            {isDarkMode ? '☀️' : '🌙'}
+          </button>
+          <div className={`status ${isConnected ? 'connected' : 'disconnected'}`}>
+            {isConnected ? '🟢 실시간 연결됨' : '🔴 연결 끊김'}
+          </div>
         </div>
       </header>
 
